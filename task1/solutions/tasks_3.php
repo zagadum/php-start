@@ -4,7 +4,7 @@ $three=3;
 $five=5;
 $eight=8;
 
-echo $three,',', $five,',', $eight=8;
+echo $three,',', $five,',', $eight;
 
 echo '<br/>';
 echo '<hr/>';
