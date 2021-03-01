@@ -15,13 +15,16 @@ $arr=array(
 natsort ($arr);
 print_r($arr);
 
-
+echo "<ul>";
 foreach ($arr as $value) {
+
     ?>
-    <ul>
-        <li><a href="#"><?php echo $value; ?></a></li>
-    </ul>
+
+        <li><a href="#"><?php echo $value;?></a></li>
+
 <?php
+
 }
+echo "</ul>";
 ?>
 
