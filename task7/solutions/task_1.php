@@ -1,14 +1,12 @@
 <?php
-
- 
-function sum(){
+function sum($products){
     $price=0;
     $quantity=0;
-	foreach ( $products as $product){
+	foreach ($products as$product){
 		$price+=$product['price']*$product['quantity'];
 		$quantity+=$product['quantity'];
 	}
-
+    return array('quantity'=>$quantity, 'price'=>$price);
 }
 
   $products = array(
@@ -17,14 +15,11 @@ function sum(){
         array('name' => 'Кроссовки', 'price' => '150', 'quantity' => 2),
     );
 
-echo sum();
 
-echo 'Общая сумма покупок - '.$price;
+$vivod=sum($products);
 
-echo '<br/>';
-echo '<br/>';
+var_dump($vivod);
 
-echo 'Общее количество выбранных товаров - '.$quantity;
 
 
 ?>
