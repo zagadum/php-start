@@ -15,7 +15,7 @@ function sum($products){
         array('name' => 'Кроссовки', 'price' => '150', 'quantity' => 2),
     );
 
-
+ 
 $vivod=sum($products);
 
 var_dump($vivod);
