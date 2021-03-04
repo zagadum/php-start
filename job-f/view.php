@@ -8,26 +8,26 @@ $xls->getProperties()->setSubject($this->report_title);
 
 $sheet = $xls->getActiveSheet();
 
-$sheet->setCellValue("B2", 'Утверждена Постановлением Госкомстата России от 05.01.2004 №1');
-$sheet->setCellValue("B4", 'Организация . . . . . . . . . . . . . . . . . . . . . . . .');
-$sheet->setCellValue("B5", 'Структурное подразделение . . . . . . . . . . . . . . . . .');
-$sheet->setCellValue("E4", 'ООО "Авиакомпания "АВИАСТАР-ТУ"');
-$sheet->setCellValue("E5", 'Лётная служба');
-$sheet->setCellValue("AF2", 'Унифицированная форма № Т-13');
-$sheet->setCellValue("AF3", 'Форма по ОКУД');
-$sheet->setCellValue("AF4", 'по ОКПО');
-$sheet->setCellValue("AG2", 'Код');
-$sheet->setCellValue("AG3", '301008');
-$sheet->setCellValue("AG5", '0');
-$sheet->setCellValue("C7", 'ТАБЕЛЬ УЧЕТА ИСПОЛЬЗОВАНИЯ РАБОЧЕГО ВРЕМЕНИ');
-$sheet->setCellValue("Z7", 'Документ N');
+//$sheet->setCellValue("B2", 'Утверждена Постановлением Госкомстата России от 05.01.2004 №1');
+//$sheet->setCellValue("B4", 'Организация . . . . . . . . . . . . . . . . . . . . . . . .');
+//$sheet->setCellValue("B5", 'Структурное подразделение . . . . . . . . . . . . . . . . .');
+//$sheet->setCellValue("E4", 'ООО "Авиакомпания "АВИАСТАР-ТУ"');
+//$sheet->setCellValue("E5", 'Лётная служба');
+//$sheet->setCellValue("AF2", 'Унифицированная форма № Т-13');
+//$sheet->setCellValue("AF3", 'Форма по ОКУД');
+//$sheet->setCellValue("AF4", 'по ОКПО');
+//$sheet->setCellValue("AG2", 'Код');
+//$sheet->setCellValue("AG3", '301008');
+//$sheet->setCellValue("AG5", '0');
+$sheet->setCellValue("C7", 'TIME TABLE');
+$sheet->setCellValue("Z7", 'Report N');
 $sheet->mergeCells("Z7:AA7");
 $sheet->mergeCells("AB7:AC7");
 $sheet->mergeCells("AB8:AC8");
 $sheet->mergeCells("Z8:AA8");
-$sheet->setCellValue("AB7", 'Дата');
+$sheet->setCellValue("AB7", 'Date');
 $sheet->setCellValue("AB8", date('d.m.Y'));
-$sheet->setCellValue("AE7", 'с     Отчетный период     по');
+$sheet->setCellValue("AE7", 'Period');
 $sheet->setCellValue("AE8", date('d.m.Y', strtotime($this->request->from_date)));
 $sheet->setCellValue("AG8", date('d.m.Y', strtotime($this->request->to_date)));
 
@@ -40,17 +40,17 @@ $sheet->mergeCells("AG4:AH4");
 $sheet->mergeCells("AG5:AH5");
 $sheet->mergeCells("C7:V8");
 
-$sheet->getStyle('AG2:AH4')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-$sheet->getStyle('AG3:AH3')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-$sheet->getStyle('AG3:AH5')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+//$sheet->getStyle('AG2:AH4')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+//$sheet->getStyle('AG3:AH3')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+//$sheet->getStyle('AG3:AH5')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 
 $sheet->getStyle('Z7:AC8')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 $sheet->getStyle('Z8:AC8')->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 $sheet->getStyle('AE7:AH7')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 $sheet->getStyle('AE8:AH8')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 
-$sheet->getStyle('E4:Y4')->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-$sheet->getStyle('E5:Y5')->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+//$sheet->getStyle('E4:Y4')->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+//$sheet->getStyle('E5:Y5')->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 
 $sheet->getRowDimension(10)->setRowHeight(30);
 $sheet->getStyle('B1:AH1000')->getFont()->setSize(8);
@@ -62,6 +62,12 @@ $sheet->getStyle('AE8')->getFont()->setBold(true);
 $sheet->getStyle('AG3')->getFont()->setBold(true);
 $sheet->getStyle('AG8')->getFont()->setBold(true);
 $sheet->getStyle('E11:T12')->getFont()->setBold(true);
+
+$sheet->getRowDimension(1)->setRowHeight(0);
+$sheet->getRowDimension(2)->setRowHeight(0);
+$sheet->getRowDimension(3)->setRowHeight(0);
+$sheet->getRowDimension(4)->setRowHeight(0);
+$sheet->getRowDimension(5)->setRowHeight(0);
 
 foreach(range('E','V') as $columnID) {
     $sheet->getColumnDimension($columnID)->setWidth(7);
@@ -81,8 +87,8 @@ $sheet->getColumnDimension('AH')->setWidth(7);
 $sheet->getColumnDimension('A')->setWidth(1);
 $sheet->getColumnDimension('B')->setWidth(3);
 $sheet->getColumnDimension('C')->setWidth(14);
-$sheet->getColumnDimension('W')->setWidth(5);
-$sheet->getColumnDimension('X')->setWidth(5);
+$sheet->getColumnDimension('W')->setWidth(8);
+$sheet->getColumnDimension('X')->setWidth(8);
 
 $sheet->setCellValue("B10", 'NN');
 $sheet->setCellValue("B11", 'п/п');
@@ -338,35 +344,6 @@ foreach ($this->response['persons'] as $person) {
     $perc_i++;
     $row_i = $row_i + 4;
 }
-
-$sheet->setCellValue("B" . ($row_i+2), 'Ответственное лицо');
-$sheet->setCellValue("B" . ($row_i+4), 'Руководитель структурного подразделения');
-$sheet->setCellValue("B" . ($row_i+6), 'Работник кадровой службы');
-$sheet->getStyle("B" . ($row_i+2))->getFont()->setBold(true);
-$sheet->getStyle("B" . ($row_i+4))->getFont()->setBold(true);
-$sheet->getStyle("B" . ($row_i+6))->getFont()->setBold(true);
-
-$sheet->setCellValue("J" . ($row_i+3), '(должность)');
-$sheet->setCellValue("J" . ($row_i+5), '(должность)');
-$sheet->setCellValue("J" . ($row_i+7), '(должность)');
-
-$sheet->setCellValue("O" . ($row_i+3), '(личная подпись)');
-$sheet->setCellValue("O" . ($row_i+5), '(личная подпись)');
-$sheet->setCellValue("O" . ($row_i+7), '(личная подпись)');
-
-$sheet->setCellValue("U" . ($row_i+3), '(расшифровка подписи)');
-$sheet->setCellValue("U" . ($row_i+5), '(расшифровка подписи)');
-$sheet->setCellValue("U" . ($row_i+7), '(расшифровка подписи)');
-
-$sheet->setCellValue("AA" . ($row_i+4), date('d ') . $monthsList[date('m')] . date(' Y г.'));
-$sheet->setCellValue("AA" . ($row_i+6), date('d ') . $monthsList[date('m')] . date(' Y г.'));
-
-$sheet->getStyle("AA" . ($row_i+4))->getFont()->setBold(true);
-$sheet->getStyle("AA" . ($row_i+6))->getFont()->setBold(true);
-
-$sheet->getStyle('H'.($row_i+2).':Y'.($row_i+2))->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-$sheet->getStyle('H'.($row_i+4).':Y'.($row_i+4))->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-$sheet->getStyle('H'.($row_i+6).':Y'.($row_i+6))->getBorders()->getBottom()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 
 $sheet->getStyle('B10'.':AH'.($row_i-1))->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
 $sheet->getStyle('W10'.':X'.($row_i-1))->getBorders()->getOutline()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
