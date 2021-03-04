@@ -91,18 +91,18 @@ $sheet->getColumnDimension('W')->setWidth(8);
 $sheet->getColumnDimension('X')->setWidth(8);
 
 $sheet->setCellValue("B10", 'NN');
-$sheet->setCellValue("B11", 'п/п');
+$sheet->setCellValue("B11", '№');
 $sheet->setCellValue("B13", '1');
 
-$sheet->setCellValue("C10", 'Фамилия, инициалы,');
-$sheet->setCellValue("C11", 'должность (профессия)');
+$sheet->setCellValue("C10", 'Name,');
+$sheet->setCellValue("C11", 'Position');
 $sheet->setCellValue("C13", '2');
 
-$sheet->setCellValue("D10", 'Таб.');
+$sheet->setCellValue("D10", 'ID');
 $sheet->setCellValue("D11", 'N');
 $sheet->setCellValue("D13", '3');
 
-$sheet->setCellValue("E10", 'Отметки о явках и неявках на работу по числам месяца');
+$sheet->setCellValue("E10", 'Notes on attendance and non-attendance at work by days of the month');
 $sheet->setCellValue("E13", '4');
 $sheet->mergeCells("E10:T10");
 
@@ -122,58 +122,58 @@ $sheet->setCellValue("E13", '4');
 $sheet->mergeCells("E13:T13");
 
 
-$sheet->setCellValue("U10", 'Отработано за');
+$sheet->setCellValue("U10", 'Worked Period');
 $sheet->mergeCells("U10:V10");
-$sheet->setCellValue("U11", '1/2 мес.');
-$sheet->setCellValue("V11", 'месяц');
-$sheet->setCellValue("U12", 'дни/часы');
+$sheet->setCellValue("U11", '1/2 month');
+$sheet->setCellValue("V11", 'Month');
+$sheet->setCellValue("U12", 'days/hours');
 $sheet->mergeCells("U12:V12");
 $sheet->setCellValue("U13", '5');
 $sheet->setCellValue("V13", '6');
 
-$sheet->setCellValue("W10", "Норма рабочего \nвремени");
+$sheet->setCellValue("W10", "The norm of the worker \ntime");
 $sheet->mergeCells("W10:X10");
-$sheet->setCellValue("W11", '1/2 мес.');
-$sheet->setCellValue("X11", 'месяц');
-$sheet->setCellValue("W12", 'дни/часы');
+$sheet->setCellValue("W11", '1/2 month');
+$sheet->setCellValue("X11", 'Month');
+$sheet->setCellValue("W12", 'days/hours');
 $sheet->mergeCells("W12:X12");
 $sheet->setCellValue("W13", '7');
 $sheet->setCellValue("X13", '8');
 
-$sheet->setCellValue("Y10", 'Данные д/начисления зарплаты по видам/направлениям');
+$sheet->setCellValue("Y10", 'Data for payroll by type / direction');
 $sheet->mergeCells("Y10:AD10");
-$sheet->setCellValue("Y11", 'код вида');
-$sheet->setCellValue("Y12", 'оплаты');
+$sheet->setCellValue("Y11", 'Invoice Code Type');
+//$sheet->setCellValue("Y12", 'оплаты');
 $sheet->setCellValue("Y13", '9');
-$sheet->setCellValue("Z11", 'корр.');
-$sheet->setCellValue("Z12", 'счет');
+$sheet->setCellValue("Z11", 'Corp Invoice');
+//$sheet->setCellValue("Z12", 'счет');
 $sheet->setCellValue("Z13", '10');
-$sheet->setCellValue("AA11", 'дни');
-$sheet->setCellValue("AA12", '(часы)');
+$sheet->setCellValue("AA11", 'Days (hours)');
+//$sheet->setCellValue("AA12", '(часы)');
 $sheet->setCellValue("AA13", '11');
-$sheet->setCellValue("AB11", 'код вида');
-$sheet->setCellValue("AB12", 'оплаты');
+$sheet->setCellValue("AB11", 'Invoice Code Type');
+//$sheet->setCellValue("AB12", 'оплаты');
 $sheet->setCellValue("AB13", '12');
-$sheet->setCellValue("AC11", 'корр.');
-$sheet->setCellValue("AC12", 'счет');
+$sheet->setCellValue("AC11", 'Corp Invoice');
+//$sheet->setCellValue("AC12", 'счет');
 $sheet->setCellValue("AC13", '13');
-$sheet->setCellValue("AD11", 'дни');
-$sheet->setCellValue("AD12", '(часы)');
+$sheet->setCellValue("AD11", 'Days (hours)');
+//$sheet->setCellValue("AD12", '(часы)');
 $sheet->setCellValue("AD13", '14');
 
 
-$sheet->setCellValue("AE10", 'Неявки по причинам');
+$sheet->setCellValue("AE10", 'Absences reasons');
 $sheet->mergeCells("AE10:AH10");
-$sheet->setCellValue("AE11", 'код');
+$sheet->setCellValue("AE11", 'Code');
 $sheet->setCellValue("AE13", '15');
-$sheet->setCellValue("AF11", 'дни');
-$sheet->setCellValue("AF12", '(часы)');
+$sheet->setCellValue("AF11", 'Days (hours)');
+//$sheet->setCellValue("AF12", '(часы)');
 $sheet->setCellValue("AF13", '16');
-$sheet->setCellValue("AG11", 'код');
+$sheet->setCellValue("AG11", 'Code');
 $sheet->setCellValue("AG12", '');
 $sheet->setCellValue("AG13", '17');
-$sheet->setCellValue("AH11", 'дни');
-$sheet->setCellValue("AH12", '(часы)');
+$sheet->setCellValue("AH11", 'Days (hours)');
+//$sheet->setCellValue("AH12", '(часы)');
 $sheet->setCellValue("AH13", '18');
 
 $sheet->getStyle('C7')->getAlignment()
