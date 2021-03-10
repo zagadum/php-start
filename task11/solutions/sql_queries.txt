@@ -1,0 +1,41 @@
+
+1) Добавил 3 записи в таблицу user с любыми данными одним запросом INSERT:
+
+ INSERT INTO user ( name, surname, emil, password, country, city, gender, birthdate, register_date, last_visit)
+        values( 'Ivan', 'Riabets', '1@gmail.com','1111', 'Ukraine', 'Brovary', 'mail', '1999.01.20', '2021.03.06', '2021.03.06'),
+                ( 'Egor', 'Riabets', '2@gmail.com','0000', 'Ukraine', 'Brovary', 'mail', '2005.09.08', '2021.03.06', '2021.03.06'),
+                ( 'Ivan', 'Rudenko', '3@gmail.com','2222', 'Ukraine', 'Kiev', 'mail', '1998.07.26', '2021.03.06', '2021.03.06')
+
+
+
+2) Написал запрос для удаления пользователей (таблица user) с именем "Томас".
+
+    DELETE FROM user WHERE name like'Tomas'
+
+3) Написал запрос для удаления пользователей с именем "Томас" и фамилией "Смит"
+
+    DELETE FROM user WHERE name LIKE 'Tomas' AND surname LIKE 'Smit'
+
+4) Написал запрос для удаления пользователей с именем "Томас" или именем "Джон"
+
+    DELETE FROM user WHERE name like'Tomas' AND surname LIKE 'Ri' OR name LIKE 'Jhon' AND surname LIKE 'Ri'
+
+5) Изменил имя (на "Тимофей") и фамилию (на "Опель") пользователю с идентификатором "3".
+
+    UPDATE user SET name = 'Тимофей' , surname = 'Опель' WHERE id=3
+
+6) Изменил фамилию троим пользователям с найбольшими значениями id на "Смит".
+
+    UPDATE user SET surname = 'Smit' ORDER BY 'id' DESC LIMIT 3
+
+7) Выбрал 3 последних новости из категории с идентификатором 2.
+
+    SELECT * FROM user WHERE id=2 LIMIT 3
+
+8) Выбрал всех пользователей с именем "Владислав" или "Елена".
+
+    SELECT * FROM user WHERE name LIKE 'Владислав' or name Like 'Елена'
+
+9) В категории новости подсчитал количество новостей со статусом "1" и "0".
+
+    SELECT COUNT(*) FROM news WHERE id=0 or id= 1 GROUP BY status
